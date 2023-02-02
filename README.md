@@ -1,5 +1,5 @@
-# Pre-reading radiology reporst
-
+# A new generative model for radiology
+## tl;dr you should include text inputs along with images
 
 ## Data
 All data were derived from MIMIC and require signing a data use agreement with Physionet.  None are provided here.
