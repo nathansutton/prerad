@@ -22,6 +22,12 @@ To realistically describe what a radiologist is doing when they write a report, 
 
 Starting from the base BLIP image captioning model, I fine-tuned a causal language model to generate radiology reports from a chest x-ray and a small prompt. 
 
+Does it work? Let's go back to our original radiology report and perturb it with two different clinical indications. On the left we show the original question for this image ('question pneumonia') and on the right a fictitious concern ('question pneumothorax'). The original reference report is in quotes above. You can play around with your own de-identified images in this interactive web application hosted graciously by huggingface spaces.
+
+![](./resources/streamlit.png)  
+
+This is a super simplified example meant to demonstrate one concept. Conditionally generated radiology reports should include text inputs alongside the medical images. There are countless things to improve.
+
 ## Data
 All data were derived from MIMIC and require signing a data use agreement with Physionet.  None are provided here.
 
@@ -65,12 +71,6 @@ docker-compose run train
 |   |-- notebooks   # jupyter notebooks persisted here
 |   |-- physionet   # physionet data is persisted here
 ```
-
-## Streamlit User Interface
-
-![](./resources/streamlit.png)  
-
-A small web application can take a clinical indication and a chest x-ray, returns a reasonably templated radiology report.
 
 ## References
 
