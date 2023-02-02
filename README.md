@@ -6,6 +6,16 @@ Machine learning in radiology has come a long way. For a long time the goal was 
 
 __They aren't answering a clinical question.__
 
+When a provider orders an imaging study the ordering provider is asking the radiologist to combine their education and experience to answer a clinical question. Unlike most specialist consultations, the format is asynchronous. Occasional telephone or face-to-face consults do occur for time-sensitive findings, but this is not the norm. Instead, the radiology report is the primary product of this provider-radiologist specialist consultation. This document's purpose to answer the clinical question, or indication. It usually has a succinct 'impression' section at the end. For example…
+
+```
+INDICATION: 36yo M with hypoxia // ?pna, aspiration.  
+FINDINGS: PA and lateral views of the chest provided. The lungs are adequately aerated. There is a focal consolidation at the left lung base adjacent to the lateral hemidiaphragm. There is mild vascular engorgement. There is bilateral apical pleural thickening. The cardiomediastinal silhouette is remarkable for aortic arch calcifications. The heart is top normal in size.  
+IMPRESSION: Focal consolidation at the left lung base, possibly representing aspiration or pneumonia. Central vascular engorgement.  
+```
+
+Medical images alone are not sufficient to answer why an imaging study was ordered by a provider. For example, a provider might order a chest x-ray because their patient is presenting with shortness of breath and they suspect pneumonia. In another case, they might suspect a fracture after a motor vehicle collision and order a chest x-ray to rule out a broken rib. The same image could answer either of these clinical questions.
+
 In my literature search I found seven studies describing model architectures that could conditionally generate entire radiology reports from an image, but none had text inputs (Jing et al. 2017, Yuan et al. 2019, Miura et al. 2020, Fenglin et al. 2021, Sirshar et al. 2022, Chen et al. 2022, Yang et al. 2022).  This is a problem because all the variation in the generated reports will come from the images (thus, not answering a clinical question in posed in text by the ordering provider).
 
 To realistically describe what a radiologist is doing when they write a report, we need to utilize the same inputs. This means the conditional generation of radiology reports should include both image and text inputs and have a text output. This year a new transformer architecture particularly suited for this type of multi-modal problem was just released by SalesForce (Li et al. 2022). BLIP has a dual text and vision encoder paired with a text decoder. This allows it to continue generating new text for a radiology report from a given prompt's starting point. Lucky for us, the first paragraph of most radiology reports is the clinical question!
