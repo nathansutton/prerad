@@ -1,0 +1,3 @@
+transformers[torch]>=4.26.0,<4.27
+pillow>=9.4.0,<9.5
+datasets>=2.9.0,<2.10
