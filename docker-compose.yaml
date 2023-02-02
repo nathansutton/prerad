@@ -31,8 +31,8 @@ services:
       - "8888:8888"
 
   # interactive application
-  prerad:
-    build: "./containers/prerad"
+  streamlit:
+    build: "./containers/streamlit"
     container_name: streamlit
     ports:
       - "8501:8501"
