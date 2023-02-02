@@ -2,6 +2,8 @@
 
 tl;dr you should include text inputs along with images
 
+Available @ https://nathansutton-prerad.hf.space
+
 Machine learning in radiology has come a long way. For a long time the goal was simply to make a probability estimates of different conditions available to the radiologist at the time of interpretation. As evidence, see any of the hundreds of AI vendors that have commercialized computer vision algorithms. On the academic frontier, recent advances have made it possible to generate realistic sounding radiology reports directly from an image. The first paper I found describing such a model was from 2017, but there have been many more recently with the onset of transformers. However, every example I have found suffers from the same structural problem. 
 
 __They aren't answering a clinical question.__
