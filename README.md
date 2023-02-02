@@ -2,6 +2,8 @@
 
 tl;dr you should include text inputs along with images
 
+[![YourActionName Actions Status](https://github.com/nathansutton/prerad/workflows/CI/badge.svg)](https://github.com/nathansutton/prerad/actions)
+
 Available @ https://nathansutton-prerad.hf.space
 
 Machine learning in radiology has come a long way. For a long time the goal was simply to make a probability estimates of different conditions available to the radiologist at the time of interpretation. As evidence, see any of the hundreds of AI vendors that have commercialized computer vision algorithms. On the academic frontier, recent advances have made it possible to generate realistic sounding radiology reports directly from an image. The first paper I found describing such a model was from 2017, but there have been many more recently with the onset of transformers. However, every example I have found suffers from the same structural problem. 
@@ -68,7 +70,7 @@ docker-compose run train
 |   |-- etl         # transforms raw data from physionet into jsonlines files
 |   |-- jupyter     # interactive notebooks
 |   |-- physionet   # download the MIMIC-CXR and MIMIC-CXR-JPG data from physionet
-|   |-- prerad      # a small streamlit application to demo the model functionality 
+|   |-- streamlit   # a small streamlit application to demo the model functionality 
 |-- volumes         # persistent data
 |   |-- notebooks   # jupyter notebooks persisted here
 |   |-- physionet   # physionet data is persisted here
