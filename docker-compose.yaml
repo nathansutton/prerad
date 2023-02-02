@@ -1,0 +1,42 @@
+version: '3'
+services:
+
+  # download data
+  physionet:
+    build: "./containers/physionet"
+    container_name: physionet
+    env_file:
+      - .env
+    volumes:
+      - ./volumes/physionet:/opt/physionet
+
+  # etl
+  etl:
+    build: "./containers/etl"
+    container_name: etl
+    env_file:
+      - .env
+    volumes:
+      - ./volumes/physionet:/opt/physionet
+
+  # interactive notebooks
+  jupyter:
+    build: "./containers/jupyter"
+    container_name: jupyter
+    volumes:
+      - ./volumes/notebooks:/opt/notebooks
+      - ./volumes/physionet:/opt/physionet
+      - ./volumes/models:/opt/models      
+    ports:
+      - "8888:8888"
+
+  # interactive application
+  prerad:
+    build: "./containers/prerad"
+    container_name: streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./volumes/models:/opt/models      
+
+
