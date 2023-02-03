@@ -31,13 +31,13 @@ Focal consolidation at the left lung base, possibly representing aspiration
 or pneumonia. Central vascular engorgement.
 ```
 
-__Incorrect Architectures__
+__Incorrect Architectures__  
 Medical images alone are not sufficient to answer why an imaging study was ordered by a provider. For example, a provider might order a chest x-ray because their patient is presenting with shortness of breath and they suspect pneumonia. In another case, they might suspect a fracture after a motor vehicle collision and order a chest x-ray to rule out a broken rib. The same image could answer either of these clinical questions.
 In my search I found over ten studies since 2017 describing model architectures that could conditionally generate entire radiology reports from an image (Jing et al. 2017, Li et al. 2018, Xue et al. 2018, Singh et al. 2019, Yuan et al. 2019, Chen et al. 2020, Miura et al. 2020, Fenglin et al. 2021, Nooralahzadeh et al. 2021, Sirshar et al. 2022, Chen et al. 2022, Yang et al. 2022). Unfortunately, none had text inputs. The one exception was a recent paper included the full-text radiology report as a textual input alongside the image, but its goal was to remove hallucinated references by cleaning up the data used for model training (Ramesh et al. 2022). These oversights are a problem because all the variation in the generated reports will come from the images. They cannot answer a clinical question posed in text by the ordering provider.
 
 ![](./resources/baseline.png)
 
-__Better Architectures__
+__Better Architectures__  
 To realistically describe what a radiologist is doing when they write a report a deep learning model needs to accept the same inputs. This means the conditional generation of radiology reports should include both image and text inputs and have a text output. This year a new transformer architecture particularly suited for this type of multi-modal problem was just released by SalesForce (Li et al. 2022). BLIP has a dual text and vision encoder paired with a text decoder. This allows it to continue generating new text for a radiology report from a given prompt's starting point. Lucky for us, the first paragraph of most radiology reports is the clinical question!
 This makes conditionally generating a radiology report possible in couple of lines of code.
 
@@ -65,7 +65,7 @@ output = model.generate(**inputs,max_length=512)
 report = processor.decode(output[0], skip_special_tokens=True)
 ```
 
-__Simplified Application__
+__Simplified Application__  
 Starting from the base BLIP image captioning model, I fine-tuned a causal language model to generate radiology reports from a chest x-ray and a clinical prompt. The data used to fine-tune these assessments were derived from the MIMIC critical care database. Specifically, I cross referenced the original radiology reports in the MIMIC-CXR project with the JPG images available in the MIMIC-CXR-JPG project.
 More information on how to reproduce these labels can be found in the corresponding Github repository.
 
