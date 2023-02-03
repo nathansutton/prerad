@@ -73,7 +73,9 @@ Does it work? Let's go back to our original radiology report and perturb it with
 
 ![](./resources/streamlit.png)  
 
-The same image with two different clinical prompts. This shows that by changing the prompt to 'chest pain, history of pneumothorax' the model successfully changed its answer in response to a different clinical question.This is a simplified example was meant to demonstrate one concept. Conditionally generated radiology reports should include text inputs alongside the medical images to answer a clinical question. Obviously this kind of automation is not intended to replace radiologists, but it could help them quickly template their reports so they aren't starting from scratch.
+The same image with two different clinical prompts. This shows that by changing the prompt to 'chest pain, history of pneumothorax' the model successfully changed its answer in response to a different clinical question.
+
+This is a simplified example was meant to demonstrate one concept. Conditionally generated radiology reports should include text inputs alongside the medical images to answer a clinical question. Obviously this kind of automation is not intended to replace radiologists, but it could help them quickly template their reports so they aren't starting from scratch.  
 
 In the bigger scheme of things, I have seen this kind of disparity between the question technologists are answering and providers are asking repeated across healthcare. Bring a provider on board to collaborate, and you'll be rewarded with actually useful models.
 
